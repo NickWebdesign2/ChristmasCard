@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body { background:#000; }
+.bulb {
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	margin: 0px 10px;
+	border-radius: 100% 4px;
+	transform: rotate(-45deg);
+}
+.bulb:nth-child(odd) {
+	background: #6CB6FF;
+	opacity: 1;
+	box-shadow: 1px 1px 15px #6CB6FF, -1px -1px 15px #6CB6FF;
+	animation: bulb-pulse-1 0.8s linear 0s infinite alternate;
+}
+.bulb:nth-child(even) {
+	background: #0C0;
+	opacity: .3;
+	box-shadow: none;
+	animation: bulb-pulse-2 0.8s linear 0s infinite alternate;
+}
+@keyframes bulb-pulse-1 {
+	from { box-shadow: 1px 1px 15px #6CB6FF, -1px -1px 15px #6CB6FF; opacity: 1; }
+	to { box-shadow: none; opacity: .3; }
+}
+@keyframes bulb-pulse-2 {
+	from { box-shadow: none; opacity: .3; }
+	to { box-shadow: 1px 1px 15px #0C0, -1px -1px 15px #0C0; opacity: 1; }
+}
+</style>
+</head>
+<body>
+<div id="lights"></div>
+<script>
+for(var i=0; i < 10; i++){
+	var bulb = document.createElement("div");
+	bulb.className = "bulb";
+	// var rand = Math.floor(Math.random() * 180) + 1;
+	// bulb.style.transform = "rotate("+rand+"deg)";
+	document.getElementById("lights").appendChild(bulb);
+}
+</script>
+</body>
+</html>
